@@ -12,7 +12,14 @@ function Login() {
       "http://localhost:8000/user/login",
       loggedIn
     );
-   console.log(response);
+
+    if (response) {
+      localStorage.setItem("foodToken", response.data);
+      console.log(response);
+      window.location.reload();
+
+      // navigate("./Dropdown");
+    }
   }
 
   return (
