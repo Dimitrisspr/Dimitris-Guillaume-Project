@@ -6,7 +6,7 @@ function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  async function createNewAcount(e) {
+  async function createNewAccount(e) {
     e.preventDefault();
     let newUser = { username: username, password: password };
 
@@ -19,7 +19,7 @@ function Signup() {
 
   return (
     <div>
-      <form onSubmit={createNewAcount}>
+      <form onSubmit={createNewAccount}>
         <div>
           <label htmlFor="username">Username</label>
           <input
@@ -38,7 +38,7 @@ function Signup() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button onClick={createNewAcount}>Sign up</button>
+        <button onClick={createNewAccount}>Sign up</button>
       </form>
     </div>
   );
