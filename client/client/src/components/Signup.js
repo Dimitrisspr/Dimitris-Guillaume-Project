@@ -16,9 +16,12 @@ function Signup() {
     );
     console.log(response);
   }
-
-  return (
-    <div>
+  const token = localStorage.getItem("foodToken");
+  if (!token){
+    return (
+      <div className="container">
+    <div className="signup">
+      <h2>Sign Up</h2>
       <form onSubmit={createNewAcount}>
         <div>
           <label htmlFor="username">Username</label>
@@ -29,6 +32,7 @@ function Signup() {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
+        <br/>
         <div>
           <label htmlFor="password">Password</label>
           <input
@@ -41,7 +45,10 @@ function Signup() {
         <button onClick={createNewAcount}>Sign up</button>
       </form>
     </div>
-  );
+  </div>
+);
+  }
+  
 }
 
 export default Signup;
