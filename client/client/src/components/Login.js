@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
+import { useEffect } from "react";
+import Logout from "./Logout";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -7,7 +9,10 @@ function Login() {
 
   async function loginUser(e) {
     e.preventDefault();
+    window.location.reload();
+
     let loggedIn = { username, password };
+
     let response = await axios.post(
       "http://localhost:8000/user/login",
       loggedIn
@@ -16,37 +21,45 @@ function Login() {
     if (response) {
       localStorage.setItem("foodToken", response.data);
       console.log(response);
-      window.location.reload();
 
       // navigate("./Dropdown");
+    } else {
+      alert("incorrect username or password");
     }
   }
+  const token = localStorage.getItem("foodToken");
+  if (!token) {
+    return (
+      <div className="container">
+        <div className="login">
+          <h2>Login</h2>
 
-  return (
-    <div>
-      <form onSubmit={loginUser}>
-        <div>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
+          <form onSubmit={loginUser}>
+            <div>
+              <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+            <br />
+            <div>
+              <label htmlFor="password">Password</label>
+              <input
+                type="text"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <button onClick={loginUser}>Login</button>
+          </form>
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="text"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button onClick={loginUser}>Login</button>
-      </form>
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 export default Login;

@@ -1,0 +1,40 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+
+}
+
+.header{
+  position: relative;
+  display: flex;
+  background-color: bisque;
+  gap: 2rem; padding: 0 1rem;
+}
+
+.container{
+  display: flex;
+  padding: 1;
+  margin: 0;
+
+}
+
+.login {
+  border: 2px solid black;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 300px;
+  height: 200px;
+}
+
+.signup{
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  width: 300px;
+  height: 200px;
+}

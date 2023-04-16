@@ -12,6 +12,7 @@ const cors = require("cors");
 app.use(cors());
 const jwt = require("jsonwebtoken");
 const privateCode = process.env.PRIVATE_CODE;
+//const verifiedToken = require("./authentification")
 
 const signUpSchema = new mongoose.Schema({
   username: String,
@@ -49,7 +50,7 @@ app.post("/user/signup", async (req, res) => {
 
 //login
 
-app.post("/user/login", async (req, res) => {
+app.post("/user/login",  async (req, res) => {
   try {
     let { username, password } = req.body;
     if (!username || !password) {
