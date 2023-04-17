@@ -6,7 +6,7 @@ function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  async function createNewAccount(e) {
+  async function createNewAcount(e) {
     e.preventDefault();
     let newUser = { username: username, password: password };
 
@@ -16,10 +16,13 @@ function Signup() {
     );
     console.log(response);
   }
-
-  return (
-    <div>
-      <form onSubmit={createNewAccount}>
+  const token = localStorage.getItem("foodToken");
+  if (!token){
+    return (
+      <div className="container">
+    <div className="signup">
+      <h2>Sign Up</h2>
+      <form onSubmit={createNewAcount}>
         <div>
           <label htmlFor="username">Username</label>
           <input
@@ -29,6 +32,7 @@ function Signup() {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
+        <br/>
         <div>
           <label htmlFor="password">Password</label>
           <input
@@ -38,10 +42,13 @@ function Signup() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button onClick={createNewAccount}>Sign up</button>
+        <button onClick={createNewAcount}>Sign up</button>
       </form>
     </div>
-  );
+  </div>
+);
+  }
+  
 }
 
 export default Signup;

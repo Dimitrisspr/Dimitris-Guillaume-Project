@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ReactDOM } from "react";
+import Logout from "./Logout";
 
 const foodDrinkMap = {
   Pizza: "Beer",
