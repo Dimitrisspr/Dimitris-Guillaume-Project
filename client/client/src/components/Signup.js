@@ -1,10 +1,12 @@
 import { useState } from "react";
 //import { useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   async function createNewAcount(e) {
     e.preventDefault();
@@ -14,6 +16,12 @@ function Signup() {
       "http://localhost:8000/user/signup",
       newUser
     );
+    if(response.status === 200){
+      alert(response.data.msg)
+      navigate("/login")
+    } else {
+      alert("try again")
+    }
     console.log(response);
   }
   const token = localStorage.getItem("foodToken");

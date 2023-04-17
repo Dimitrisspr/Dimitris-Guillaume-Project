@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { ReactDOM } from "react";
 import Logout from "./Logout";
+import Drinks from "./Pictures";
 
 const foodDrinkMap = {
-  Pizza: "Beer",
+  Pizza: "beer",
   Burger: "Milkshake",
   Sushi: "Sake",
   Taco: "Margarita",
@@ -17,6 +18,7 @@ const foodDrinkMap = {
 
 function DropdownMenu() {
   const [selectedFood, setSelectedFood] = useState("");
+  //const [selectDrink, setSelectedDrink] = useState("");
   const token = localStorage.getItem("foodToken");
   if (token)
     try {
