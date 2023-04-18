@@ -8,17 +8,22 @@ body{
 }
 
 .header{
-  position: relative;
+  background-color: rgb(180, 164, 72);
+  color: black;
   display: flex;
-  background-color: bisque;
-  gap: 2rem; padding: 0 1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
 }
 
 .container{
   display: flex;
   padding: 1;
-  margin: 0;
+  margin: 20px;
+}
 
+#btnLogout{
+  text-decoration: none;
 }
 
 .login {
@@ -29,6 +34,7 @@ body{
   border-radius: 10px;
   width: 300px;
   height: 200px;
+  
 }
 
 .signup{
@@ -41,3 +47,48 @@ body{
   height: 200px;
 }
 
+#loginBtn{
+  margin: 20px;
+  text-decoration: none;
+  font-size: larger;
+  color: black;
+}
+
+#signupBtn{
+  text-decoration: none;
+  font-size: larger;
+  color: black;
+}
+.dropdown{
+  margin: 10px;
+  padding: 5px;
+  height: 45px;
+  width: 15rem;
+  border-radius: 5px;
+  border: 2px solid black;
+  position: relative;left: 35rem;
+  
+}
+.dropdown:hover{
+  font-size: large;
+  height: 50px;
+  width: 17rem;
+}
+
+
+.options{
+  position: relative;left: 30rem;
+}
+.options > p{
+  font-size: larger;
+}
+
+#btnLogout{
+  border: none;
+  background-color:rgb(180, 164, 72) ;
+  font-size: large;
+}
+#btnLogout:hover{
+  transform: scale(1.3);
+  
+}

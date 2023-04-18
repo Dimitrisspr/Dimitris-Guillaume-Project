@@ -28,11 +28,12 @@ app.post("/user/signup", async (req, res) => {
   try {
     let { username, password } = req.body;
     if (!username || !password) {
-      return res.send({ msg: "All fields are required" });
+      return res.status(401).send({ msg: "All fields are required" });
     }
     let findUser = await Signup.findOne({ username });
     if (findUser) {
-      return res.send({ msg: "Username already exists." });
+      
+      return res.status(401).send({ msg: "Username already exists." });
     } else {
       let hashedPassword = await bcrypt.hash(password, 10);
       let newSignedUp = await Signup.create({
@@ -40,10 +41,10 @@ app.post("/user/signup", async (req, res) => {
         password: hashedPassword,
       });
 
-      return res.send({ msg: "signed up successfully", newSignedUp });
+      return res.status(200).send({ msg: "signed up successfully", newSignedUp });
     }
   } catch (error) {
-    res.send({ msg: "error", error });
+    res.status(500).send({ msg: "error", error });
     console.log(error);
   }
 });
@@ -54,23 +55,23 @@ app.post("/user/login",  async (req, res) => {
   try {
     let { username, password } = req.body;
     if (!username || !password) {
-      return res.send({ msg: "Both username and password are required!" });
+      return res.status(400).send({ msg: "Both username and password are required!" });
     }
     let newUser = await Signup.findOne({ username });
     if (!newUser) {
-      res.send({ msg: "you need to sign up first" });
+      res.status(400).send({ msg: "you need to sign up first" });
     } else {
       let comparedPass = await bcrypt.compare(password, newUser.password);
       if (!comparedPass) {
-        return res.send({ msg: "password incorrect" });
+        return res.status(400).send({ msg: "password incorrect" });
       } else {
         //token
         const token = jwt.sign({ userId: newUser._id }, privateCode);
-        res.send(token)
+        res.status(200).send(token)
       }
     }
   } catch (error) {
-    res.send(error);
+    res.status(500).send(error);
     console.log(error);
   }
 });
