@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 // import { ReactDOM } from "react";
 // import Logout from "./Logout";
-// import Drinks from "./Pictures";
 
 const foodDrinkMap = {
   Pizza: {
     drink: "beer",
-    imageSrc:
+    imageURL:
       "https://images.unsplash.com/photo-1600788886242-5c96aabe3757?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
   },
   Burger: {
@@ -68,7 +67,7 @@ function DropdownMenu() {
 
         return (
           <div>
-            <select value={selectedFood} onChange={handleFoodSelect}>
+            <select value={selectedFood} onChange={handleFoodSelect} className="dropdown">
               <option value="">Select a food</option>
               <option value="Pizza">Pizza</option>
               <option value="Burger">Burger</option>
