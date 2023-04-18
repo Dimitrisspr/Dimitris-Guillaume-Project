@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import React, { useState } from "react";
 // import { ReactDOM } from "react";
 // import Logout from "./Logout";
@@ -81,8 +82,8 @@ function DropdownMenu() {
               <option value="GreekSalad">GreekSalad</option>
             </select>
             {selectedFood && (
-              <div>
-                <p>Suggested drink: {foodDrinkMap[selectedFood].drink}</p>
+              <div className="options">
+                <p >Suggested drink: {foodDrinkMap[selectedFood].drink}</p>
                 <img
                   src={foodDrinkMap[selectedFood].imageURL}
                   alt={selectedFood}

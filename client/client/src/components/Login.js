@@ -18,13 +18,16 @@ function Login() {
       "http://localhost:8000/user/login",
       loggedIn
     );
+    if(response){
+      alert("Logged in successfully")
+    }
 
     if (response.status === 200) {
       localStorage.setItem("foodToken", response.data);
       navigate("/");
       // navigate("./Dropdown");
     } else {
-      alert("incorrect username or password");
+      console.log("incorrect username or password");
     }
   }
 
