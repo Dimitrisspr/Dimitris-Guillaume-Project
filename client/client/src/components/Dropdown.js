@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import React, { useState } from "react";
 // import { ReactDOM } from "react";
 // import Logout from "./Logout";
@@ -6,7 +7,7 @@ import React, { useState } from "react";
 const foodDrinkMap = {
   Pizza: {
     drink: "beer",
-    imageSrc:
+    imageURL:
       "https://images.unsplash.com/photo-1600788886242-5c96aabe3757?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
   },
   Burger: {
@@ -68,8 +69,8 @@ function DropdownMenu() {
 
         return (
           <div>
-            <select value={selectedFood} onChange={handleFoodSelect}>
-              <option value="">Select a food</option>
+            <select value={selectedFood} onChange={handleFoodSelect} className="dropdown">
+              <option value="" >Select a food</option>
               <option value="Pizza">Pizza</option>
               <option value="Burger">Burger</option>
               <option value="Sushi">Sushi</option>
@@ -82,8 +83,8 @@ function DropdownMenu() {
               <option value="GreekSalad">GreekSalad</option>
             </select>
             {selectedFood && (
-              <div>
-                <p>Suggested drink: {foodDrinkMap[selectedFood].drink}</p>
+              <div className="options">
+                <p >Suggested drink: {foodDrinkMap[selectedFood].drink}</p>
                 <img
                   src={foodDrinkMap[selectedFood].imageURL}
                   alt={selectedFood}

@@ -27,6 +27,7 @@ body{
 }
 
 .login {
+  
   border: 2px solid black;
   margin: 10px;
   padding: 10px;
@@ -37,6 +38,7 @@ body{
 }
 
 .signup{
+  
   border: 2px solid black;
   padding: 10px;
   border-radius: 10px;
@@ -56,4 +58,37 @@ body{
   text-decoration: none;
   font-size: larger;
   color: black;
+}
+.dropdown{
+  margin: 10px;
+  padding: 5px;
+  height: 45px;
+  width: 15rem;
+  border-radius: 5px;
+  border: 2px solid black;
+  position: relative;left: 35rem;
+  
+}
+.dropdown:hover{
+  font-size: large;
+  height: 50px;
+  width: 17rem;
+}
+
+
+.options{
+  position: relative;left: 30rem;
+}
+.options > p{
+  font-size: larger;
+}
+
+#btnLogout{
+  border: none;
+  background-color:rgb(180, 164, 72) ;
+  font-size: large;
+}
+#btnLogout:hover{
+  transform: scale(1.3);
+  
 }
