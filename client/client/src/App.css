@@ -59,5 +59,23 @@ body{
   font-size: larger;
   color: black;
 }
+<<<<<<< HEAD
+=======
+.dropdown{
+  margin: 10px;
+  padding: 5px;
+  height: 45px;
+  width: 15rem;
+  border-radius: 5px;
+  border: 2px solid black;
+  position: relative;left: 35rem;
+  
+}
+.dropdown:hover{
+  font-size: large;
+  height: 50px;
+  width: 18rem;
+}
+>>>>>>> bb2ca566a6e837698026043af345a8b1d771ee64
 
 
