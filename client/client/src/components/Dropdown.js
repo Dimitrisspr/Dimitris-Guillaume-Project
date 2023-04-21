@@ -2,12 +2,22 @@
 import React, { useState } from "react";
 // import { ReactDOM } from "react";
 // import Logout from "./Logout";
+const sthWith = {
+  
+  sth: {
+  desert: "garlic bread",
+  imageURL:
+    "https://images.unsplash.com/photo-1553787499-6f9133860278?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bWlsa3NoYWtlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  
+}
 
+};
 const foodDrinkMap = {
   Pizza: {
     drink: "beer",
     imageURL:
       "https://images.unsplash.com/photo-1600788886242-5c96aabe3757?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    desert: "garlic bread",
   },
   Burger: {
     drink: "Milkshake",
@@ -58,44 +68,74 @@ const foodDrinkMap = {
 
 function DropdownMenu() {
   const [selectedFood, setSelectedFood] = useState("");
+  const [selectedFood1, setSelectedFood1] = useState("");
   const token = localStorage.getItem("foodToken");
-  if (token)
+  if (token) {
     try {
-      {
-        const handleFoodSelect = (event) => {
-          setSelectedFood(event.target.value);
-        };
+      // Fixed missing opening curly brace
+      let handleFoodSelect = (event) => {
+        setSelectedFood(event.target.value);
+      };
+      let handleFoodSelect1 = (event) => {
+        setSelectedFood1(event.target.value);
+      };
 
-        return (
-          <div>
-            <select value={selectedFood} onChange={handleFoodSelect} className="dropdown">
-              <option value="">Select a food</option>
-              <option value="Pizza">Pizza</option>
-              <option value="Burger">Burger</option>
-              <option value="Sushi">Sushi</option>
-              <option value="Taco">Taco</option>
-              <option value="Mousakas">Mousakas</option>
-              <option value="Croissant">Croissant</option>
-              <option value="Souvlaki">Souvlaki</option>
-              <option value="Falafel">Falafel</option>
-              <option value="Bougatsa">Bougatsa</option>
-              <option value="GreekSalad">GreekSalad</option>
-            </select>
-            {selectedFood && (
-              <div className="options">
-                <p >Suggested drink: {foodDrinkMap[selectedFood].drink}</p>
-                <img
-                  src={foodDrinkMap[selectedFood].imageURL}
-                  alt={selectedFood}
-                />
-              </div>
-            )}
-          </div>
-        );
-      }
+      return (
+        <div>
+          <h1>Look and select from all the given selection of food and desert menu</h1>
+          <select
+            value={selectedFood}
+            onChange={handleFoodSelect}
+            className="dropdown"
+          >
+            <option value="">Select a food</option>
+            <option value="Pizza">Pizza</option>
+          </select>
+
+          {selectedFood && (
+            <div className="options">
+              <h1>Suggested drink: {foodDrinkMap[selectedFood].drink}</h1>
+
+              <img
+                src={foodDrinkMap[selectedFood].imageURL}
+                alt={selectedFood}
+              />
+            </div>
+          )}
+
+          {/* Fixed using the wrong onChange function for the second dropdown */}
+          <select
+            value={selectedFood1}
+            onChange={handleFoodSelect1}
+            className="dropdown"
+          >
+            <option value="">select sth</option>
+            <option value="sth">sth</option>
+          </select>
+
+          {selectedFood1 && (
+            <div className="options">
+              <h1>
+                something to take it with: {sthWith[selectedFood1].desert}
+              </h1>
+
+              <img
+                src={sthWith[selectedFood1].imageURL}
+                alt={selectedFood1}
+              />
+            </div>
+          )}
+        </div>
+      );
     } catch (error) {
       console.log(error);
     }
+  }
+
+  return null;
 }
 
+
+
+  
 export default DropdownMenu;

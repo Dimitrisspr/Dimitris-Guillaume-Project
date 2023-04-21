@@ -1,7 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-import { useEffect } from "react";
-import Logout from "./Logout";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -12,22 +10,22 @@ function Login() {
   async function loginUser(e) {
     e.preventDefault();
 
-    let loggedIn = { username, password };
+    try {
+      const loggedIn = { username, password };
+      const response = await axios.post(
+        "http://localhost:8000/user/login",
+        loggedIn
+      );
 
-    let response = await axios.post(
-      "http://localhost:8000/user/login",
-      loggedIn
-    );
-    if(response){
-      alert("Logged in successfully")
-    }
-
-    if (response.status === 200) {
-      localStorage.setItem("foodToken", response.data);
-      navigate("/");
-      // navigate("./Dropdown");
-    } else {
-      console.log("incorrect username or password");
+      if (response.status === 200) {
+        localStorage.setItem("foodToken", response.data);
+        alert("Logged in successfully");
+        navigate("/");
+      } else {
+        console.log("incorrect username or password");
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -35,7 +33,6 @@ function Login() {
     <div className="container">
       <div className="login">
         <h2>Login</h2>
-
         <form onSubmit={loginUser}>
           <div>
             <label htmlFor="username">Username</label>
@@ -50,13 +47,13 @@ function Login() {
           <div>
             <label htmlFor="password">Password</label>
             <input
-              type="text"
+              type="password"
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button onClick={loginUser}>Login</button>
+          <button type="submit">Login</button>
         </form>
       </div>
     </div>
