@@ -16,7 +16,7 @@ const privateCode = process.env.PRIVATE_CODE;
 
 const signUpSchema = new mongoose.Schema({
   username: String,
-  password: { type: String, minLength: 10 },
+  password: String,
   // email: String,
 });
 
