@@ -4,7 +4,8 @@ import Logout from "./Logout";
 function Header() {
   const token = localStorage.getItem("foodToken");
   return (
-    <div className="header">
+    <div>
+      <div className="header">
       <h1>FoodHub App</h1>
       {token ? (
         <Logout/>
@@ -14,7 +15,21 @@ function Header() {
           <Link to="/signup" id="signupBtn">Sign up</Link>
         </div>
       )}
+     </div>
+     <div className="container1">
+        <h1>
+          This web site is used for simply looking for a drink that can go with the type of food you choose.
+          Additionally you can find high quality pictures of any type of foods.
+
+        </h1>
+        <div className="img">
+          <image alt='foods'  />
+        </div>
+      
+      
+      </div>
     </div>
+    
   );
 }
 

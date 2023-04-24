@@ -79,10 +79,8 @@ const foodDrinkMap = {
 function DropdownMenu() {
   const [query, setQuery] = useState();
   const [searchQ, setSearch] = useState();
-  const [username, setUsername] = useState("");
   const data = LoadImage();
   const [selectedFood, setSelectedFood] = useState("");
-  const [selectedFood1, setSelectedFood1] = useState("");
   const token = localStorage.getItem("foodToken");
   const search = () => {
 setSearch(query)
@@ -91,111 +89,67 @@ setSearch(query)
 
 
   if (token) {
-    try {
+     {
       // Fixed missing opening curly brace
       let handleFoodSelect = (event) => {
         setSelectedFood(event.target.value);
       };
-      let handleFoodSelect1 = (event) => {
-        setSelectedFood1(event.target.value);
-      };
+   
 
-      return (
-        <div>
-          <h1>Look and select from all the given selection of food and desert menu</h1>
-          <select
-            value={selectedFood}
-            onChange={handleFoodSelect}
-            className="dropdown"
-          >
-            <option value="">Select a food</option>
-            <option value="Pizza">Pizza</option>
-          </select>
+      const foodItems = ["Pizza", "Burger", "Sushi", "Taco", "Mousakas", "Croissant"];
 
-          {selectedFood && (
-            <div className="options">
-              <h1>Suggested drink: {foodDrinkMap[selectedFood].drink}</h1>
-
-              <img
-                src={foodDrinkMap[selectedFood].imageURL}
-                alt={selectedFood}
-              />
-            </div>
-          )}
-
-          <select
-            value={selectedFood1}
-            onChange={handleFoodSelect1}
-            className="dropdown"
-          >
-            <option value="">select sth</option>
-            <option value="sth">sth</option>
-          </select>
-
-          {selectedFood1 && (
-            <div className="options">
-              <h1>
-                something to take it with: {sthWith[selectedFood1].desert}
-              </h1>
-
-              <img
-                src={sthWith[selectedFood1].imageURL}
-                alt={selectedFood1}
-              />
-            </div>
-          )}
-
-
-
-          <div>
-            <input 
-            type="text" 
-            onChange={(e) => setQuery(e.target.value) } />
-            <button onClick={search}>Search</button>
-          </div>
-          <div className="card-container">
-  {searchQ
-    ? searchData.map((img, key) => (
-        <div className="card" key={key}>
-          <Image src={img.urls.thumb} />
-        </div>
-      ))
-    : data.map((img, key) => (
-        <div className="card" key={key}>
-          <Image src={img.urls.thumb} />
-        </div>
+return (
+  <div>
+    <h1>Look and select from all the given selection of food and desert menu</h1>
+    <select
+      value={selectedFood}
+      onChange={handleFoodSelect}
+      className="dropdown"
+    >
+      <option value="">Select a food</option>
+      {foodItems.map((food) => (
+        <option key={food} value={food}>
+          {food}
+        </option>
       ))}
-</div>
+    </select>
 
+    {selectedFood && (
+      <div className="options">
+        <h1>Suggested drink: {foodDrinkMap[selectedFood].drink}</h1>
 
-  
+        <img
+          src={foodDrinkMap[selectedFood].imageURL}
+          alt={selectedFood}
+        />
+      </div>
+    )}
 
+    <div>
+      <input 
+        type="text" 
+        onChange={(e) => setQuery(e.target.value) } />
+      <button onClick={search}>Search</button>
+    </div>
 
-
-
-
-
-        </div>
-        
-        
-        
-          
-            
-     
-
-
-
-
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  return null;
-}
-
-
-
+    <div className="card-container">
+      {searchQ
+        ? searchData.map((img, key) => (
+            <div className="card" key={key}>
+              <Image src={img.urls.thumb} />
+            </div>
+          ))
+        : data.map((img, key) => (
+            <div className="card" key={key}>
+              <Image src={img.urls.thumb} />
+            </div>
+          ))}
+    </div>
+  </div>
+)
+        }
+        }
+      }
+    
   
 export default DropdownMenu;
