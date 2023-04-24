@@ -1,7 +1,9 @@
 /* eslint-disable no-lone-blocks */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { ReactDOM } from "react";
 // import Logout from "./Logout";
+import { LoadImage, SearchImage } from "./Api";
+import Image from "./Image";
 const sthWith = {
   
   sth: {
@@ -66,10 +68,28 @@ const foodDrinkMap = {
   },
 };
 
+
+
+
+
+
+
+
+
 function DropdownMenu() {
+  const [query, setQuery] = useState();
+  const [searchQ, setSearch] = useState();
+  const [username, setUsername] = useState("");
+  const data = LoadImage();
   const [selectedFood, setSelectedFood] = useState("");
   const [selectedFood1, setSelectedFood1] = useState("");
   const token = localStorage.getItem("foodToken");
+  const search = () => {
+setSearch(query)
+  }
+  const searchData = SearchImage(searchQ)
+
+
   if (token) {
     try {
       // Fixed missing opening curly brace
@@ -103,7 +123,6 @@ function DropdownMenu() {
             </div>
           )}
 
-          {/* Fixed using the wrong onChange function for the second dropdown */}
           <select
             value={selectedFood1}
             onChange={handleFoodSelect1}
@@ -125,7 +144,48 @@ function DropdownMenu() {
               />
             </div>
           )}
+
+
+
+          <div>
+            <input 
+            type="text" 
+            onChange={(e) => setQuery(e.target.value) } />
+            <button onClick={search}>Search</button>
+          </div>
+          <div className="card-container">
+  {searchQ
+    ? searchData.map((img, key) => (
+        <div className="card" key={key}>
+          <Image src={img.urls.thumb} />
         </div>
+      ))
+    : data.map((img, key) => (
+        <div className="card" key={key}>
+          <Image src={img.urls.thumb} />
+        </div>
+      ))}
+</div>
+
+
+  
+
+
+
+
+
+
+        </div>
+        
+        
+        
+          
+            
+     
+
+
+
+
       );
     } catch (error) {
       console.log(error);
