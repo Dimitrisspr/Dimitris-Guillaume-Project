@@ -23,7 +23,7 @@ function Header() {
 
         </h1>
         <div className="img">
-          <image alt='foods'  />
+         
         </div>
       
       

@@ -100,7 +100,6 @@ setSearch(query)
 
 return (
   <div>
-    <h1>Look and select from all the given selection of food and desert menu</h1>
     <select
       value={selectedFood}
       onChange={handleFoodSelect}
