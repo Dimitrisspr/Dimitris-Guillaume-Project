@@ -1,5 +1,6 @@
 *{
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 body{
@@ -8,13 +9,16 @@ body{
 }
 
 .header{
-  background-color: rgba(207, 207, 207, 0.272);
+  background-color: rgba(136, 136, 136, 0.372);
   color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
+  text-decoration: none;
+
 }
+
 
 .container{
   display: flex;
@@ -23,11 +27,21 @@ body{
 }
 
 #btnLogout{
-  text-decoration: none;
+ background-color: rgb(231, 198, 198);
+ padding: 10px;
+ width: 90px;
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ border: none;
+ border-radius: 5px;
+}
+#btnLogout:active{
+  padding: 9px;
+  background-color: rgb(166, 127, 127);
 }
 
+
 .login {
-  
+  background-color: rgb(221, 239, 198);
   border: 2px solid black;
   margin: 10px;
   padding: 10px;
@@ -36,32 +50,60 @@ body{
   height: 200px;
 
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 80px;
   
 }
 
 .signup{
-  
+  background-color: rgb(167, 205, 241);
   border: 2px solid black;
+  margin: 10px;
   padding: 10px;
   border-radius: 10px;
-  margin: 10px;
   width: 300px;
   height: 200px;
+
+  margin: 0 auto;
+  margin-top: 80px;
 }
 
 #loginBtn{
   margin: 20px;
   text-decoration: none;
-  font-size: larger;
+ 
   color: black;
+  background-color: rgb(221, 239, 198);
+  padding: 10px;
+  width: 90px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+
 }
+
 
 #signupBtn{
   text-decoration: none;
-  font-size: larger;
   color: black;
+  background-color: rgb(167, 205, 241);
+  padding: 10px;
+  width: 90px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
 }
+
+#loginBtn:active {
+  background-color: rgb(181, 196, 162);
+  padding: 9px;
+}
+#signupBtn:active {
+  background-color: rgb(123, 152, 179);
+  padding: 9px;
+}
+
 .dropdown{
   margin: 10px;
   margin-top: 60px ;

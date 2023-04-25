@@ -6,7 +6,7 @@ function Header() {
   return (
     <div>
       <div className="header">
-      <h1>FoodHub App</h1>
+      <a href="/"><h1 className="logoName">FoodHub App</h1></a>
       {token ? (
         <Logout/>
       ) : (

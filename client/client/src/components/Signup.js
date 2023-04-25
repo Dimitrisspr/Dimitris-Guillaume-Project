@@ -44,13 +44,13 @@ function Signup() {
         <div>
           <label htmlFor="password">Password</label>
           <input
-            type="text"
+            type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button onClick={createNewAcount}>Sign up</button>
+        <button id="signup1" onClick={createNewAcount}>Sign up</button>
       </form>
     </div>
   </div>
