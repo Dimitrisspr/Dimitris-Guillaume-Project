@@ -75,4 +75,19 @@ body{
   width: 18rem;
 }
 
+.options{
+  position: relative;left: 30rem;
+}
+.options > p{
+  font-size: larger;
+}
 
+#btnLogout{
+  border: none;
+  background-color:rgb(180, 164, 72) ;
+  font-size: large;
+}
+#btnLogout:hover{
+  transform: scale(1.3);
+  
+}

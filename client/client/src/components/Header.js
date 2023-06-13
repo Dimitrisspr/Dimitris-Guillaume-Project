@@ -5,7 +5,7 @@ function Header() {
   const token = localStorage.getItem("foodToken");
   return (
     <div className="header">
-      <h1>FoodHub App</h1>
+      <h1>Drink Hub App</h1>
       {token ? (
         <Logout/>
       ) : (

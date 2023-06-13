@@ -18,8 +18,8 @@ function Login() {
       "http://localhost:8000/user/login",
       loggedIn
     );
-    if(response){
-      alert("Logged in successfully")
+    if (response) {
+      alert("Logged in successfully");
     }
 
     if (response.status === 200) {
@@ -50,7 +50,7 @@ function Login() {
           <div>
             <label htmlFor="password">Password</label>
             <input
-              type="text"
+              type="password"
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

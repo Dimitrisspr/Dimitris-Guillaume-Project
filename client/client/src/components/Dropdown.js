@@ -79,7 +79,7 @@ function DropdownMenu() {
               <option value="Souvlaki">Souvlaki</option>
               <option value="Falafel">Falafel</option>
               <option value="Bougatsa">Bougatsa</option>
-              <option value="GreekSalad">GreekSalad</option>
+              <option value="GreekSalad">Greek Salad</option>
             </select>
             {selectedFood && (
               <div className="options">
