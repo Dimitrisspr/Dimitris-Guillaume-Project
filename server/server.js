@@ -12,12 +12,10 @@ const cors = require("cors");
 app.use(cors());
 const jwt = require("jsonwebtoken");
 const privateCode = process.env.PRIVATE_CODE;
-//const verifiedToken = require("./authentification")
 
 const signUpSchema = new mongoose.Schema({
   username: String,
   password: { type: String, minLength: 10 },
-  // email: String,
 });
 
 const Signup = mongoose.model("Signup", signUpSchema);
