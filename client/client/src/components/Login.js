@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Logout from "./Logout";
 import { useNavigate } from "react-router-dom";
+import API_URL from "./config";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -15,7 +16,8 @@ function Login() {
     let loggedIn = { username, password };
 
     let response = await axios.post(
-      "http://localhost:8000/user/login",
+      `${API_URL}/user/login`,
+      // "http://localhost:8000/user/login",
       loggedIn
     );
     if (response) {

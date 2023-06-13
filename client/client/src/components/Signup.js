@@ -2,6 +2,7 @@ import { useState } from "react";
 //import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API_URL from "./config";
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -13,7 +14,8 @@ function Signup() {
     let newUser = { username: username, password: password };
 
     let response = await axios.post(
-      "http://localhost:8000/user/signup",
+      `${API_URL}/user/signup`,
+      //"http://localhost:8000/user/signup",
       newUser
     );
     if(response.status === 200){
