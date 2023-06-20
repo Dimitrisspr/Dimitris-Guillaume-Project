@@ -13,3 +13,15 @@ This very simply project is a helpfull guide that proposes you a drink that (on 
 - Mongoose
 - Axios
   
+## Images of the website
+Front Page
+![front page](readmephotos/frontpage.png)
+
+Sign Up
+![sign up](readmephotos/signup.png)
+
+Login
+![login](readmephotos/login.png)
+
+Suggested drink
+![suggested drink](readmephotos/suggesteddrink.png)
