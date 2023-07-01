@@ -17,7 +17,6 @@ function Login() {
 
     let response = await axios.post(
       `${API_URL}/user/login`,
-      // "http://localhost:8000/user/login",
       loggedIn
     );
     if (response) {

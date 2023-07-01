@@ -1,5 +1,4 @@
 import { useState } from "react";
-//import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import API_URL from "./config";
@@ -15,7 +14,6 @@ function Signup() {
 
     let response = await axios.post(
       `${API_URL}/user/signup`,
-      //"http://localhost:8000/user/signup",
       newUser
     );
     if(response.status === 200){

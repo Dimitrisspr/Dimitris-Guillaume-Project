@@ -8,7 +8,6 @@ main()
 
 async function main() {
  await mongoose.connect(URI);
-  //await mongoose.connect("mongodb+srv://dimatripola:QDUcATAdPdRX0NmX@cluster0.mmdtysr.mongodb.net/")
 }
 
 module.exports = main;

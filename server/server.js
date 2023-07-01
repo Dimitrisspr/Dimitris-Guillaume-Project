@@ -2,11 +2,8 @@ const express = require("express");
 const app = express();
 const port = 8000;
 const connection = require("./connection");
-//const signUpRouter = require("./router/router");
-//const Signup = require("./schema/Signup")
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-//const controller = require("./controllers/signUpCntrl")
 app.use(express.json());
 const cors = require("cors");
 app.use(cors());

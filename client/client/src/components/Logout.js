@@ -9,14 +9,12 @@ function Logout() {
   try {
     function logout() {
       setIsLoggedIn(false);
-     // console.log("any message");
       localStorage.removeItem("foodToken");
       window.location.reload();
 
       navigate("/login");
     }
 
-    //const token = localStorage.getItem("foodToken");
 
     return (
       <div onSubmit={logout}>
